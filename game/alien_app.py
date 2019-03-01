@@ -1,0 +1,30 @@
+import sys
+import pygame
+from game.settings import Settings
+
+def run_game():
+    # Initialize game and create a screen object.
+    pygame.init()
+
+    settings = Settings()
+
+    screen = pygame.display.set_mode((settings.screen_width, settings.screen_heigth))
+    pygame.display.set_caption("Alien Invasion 3000")
+
+    # Start the main loop for the game.
+    while True:
+        # Watch for keyboard and mouse events.
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+
+        # Redraw the screen during each pass through the loop.
+        screen.fill(settings.bg_color)
+
+        # Make the most recently drawn screen visible.
+        pygame.display.flip()
+    #TODO 243/276
+
+
+if __name__ == '__main__':
+    run_game()
